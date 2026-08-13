@@ -1,6 +1,6 @@
 aiohttp
 anytree
-apscheduler
+apscheduler>=3.10.4
 aria2p
 asgiref
 asyncio
