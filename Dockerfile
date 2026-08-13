@@ -1,4 +1,5 @@
-FROM arata74/enc
+FROM ubuntu:22.04
+ENV DEBIAN_FRONTEND=noninteractive
 
 WORKDIR /usr/src/app
 RUN chmod 777 /usr/src/app
