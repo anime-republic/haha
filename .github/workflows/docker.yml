@@ -25,4 +25,4 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64
           push: true
-          tags: arata74/clonebot:latest
+          tags: arata74/haha:latest
