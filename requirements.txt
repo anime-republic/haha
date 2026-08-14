@@ -1,4 +1,5 @@
 aiohttp
+anipy-cli
 anytree
 apscheduler>=3.10.4
 aria2p
