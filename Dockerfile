@@ -4,7 +4,7 @@ FROM ubuntu:22.04
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Install Python 3.10, pip, and required system dependencies (like FFmpeg, aria2, and mkvtoolnix)
-RUN apt-update && apt-get install -y --no-install-recommends \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     python3.10 \
     python3-pip \
     ffmpeg \
