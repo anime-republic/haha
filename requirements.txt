@@ -35,3 +35,7 @@ aiofiles
 aiohttp
 aiohttp_session
 cryptography
+
+# MediaSearch Dependencies
+marshmallow==3.14.1
+umongo==3.0.1
