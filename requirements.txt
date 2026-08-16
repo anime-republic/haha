@@ -23,7 +23,7 @@ psutil
 cloudscraper
 lk21
 lxml
-irc
+irc>=20.0.0
 
 # Anipy
 anipy-api>=3.10.0
