@@ -21,7 +21,7 @@ motor==3.3.2
 # Others
 psutil==5.9.8
 cloudscraper==1.2.71
-lk21==1.5.76
+lk21==1.6.0
 lxml==5.1.0
 irc==20.5.0
 
