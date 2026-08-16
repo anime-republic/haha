@@ -22,7 +22,7 @@ motor
 psutil
 cloudscraper
 lk21
-lxml
+lxml>=4.9.3
 irc>=20.0.0
 
 # Anipy
