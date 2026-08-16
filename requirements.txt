@@ -1,39 +1,53 @@
-# Required
-pyrogram
-Pillow
-
-setuptools
-TgCrypto
-python-dotenv
-hachoir
-beautifulsoup4>=4.12.3
-
-# DDL
-requests
-httpx
-
-# Database
+# ==========================================
+# VideoEncoder Dependencies
+# ==========================================
+apscheduler
+beautifulsoup4==4.9.1
+bs4==0.0.1
+cfscrape
 dnspython
 feedparser
-apscheduler>=3.10.4
-motor
-
-# Others
-psutil
-cloudscraper
-lk21
-lxml
-irc
-
-# Drive
+ffmpeg-python
 google-api-core
-google-auth
-oauth2client
 google-api-python-client
+google-auth
 google-auth-httplib2
 google-auth-oauthlib
-httplib2
+google~=3.0.0
+hachoir
+httplib2==0.18.0
+irc
+lk21
+lxml
+oauth2client<4.0.0
+psutil
+requests
+setuptools
+urllib3<2.0.0
 
-# Anipy
-anipy-api>=3.10.0
-anipy-cli>=3.10.0
+# ==========================================
+# Telegram-Stremio Backend Dependencies
+# ==========================================
+aiofiles
+fastapi
+guessit
+httptools
+httpx
+itsdangerous
+jinja2
+motor
+parse-torrent-title
+python-dotenv
+python-multipart
+pytz
+rapidfuzz
+themoviedb
+uv
+uvicorn
+uvloop
+
+# ==========================================
+# Shared Dependencies
+# ==========================================
+pyrofork
+TgCrypto
