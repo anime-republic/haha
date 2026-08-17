@@ -1,6 +1,6 @@
 # 🎬 Haha - Media Service & Bot
 
-![Docker Build](https://img.shields.io/github/actions/workflow/status/walterwhite-69/haha/docker.yml?branch=main&label=Docker%20Build&style=for-the-badge)
+![Docker Build](https://img.shields.io/github/actions/workflow/status/anime-republic/haha/docker.yml?branch=main&label=Docker%20Build&style=for-the-badge)
 ![Python Version](https://img.shields.io/badge/Python-3.10-blue?style=for-the-badge&logo=python)
 ![Ubuntu](https://img.shields.io/badge/Ubuntu-22.04-orange?style=for-the-badge&logo=ubuntu)
 
