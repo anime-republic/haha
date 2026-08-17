@@ -22,6 +22,11 @@ RUN git clone https://github.com/walterwhite-69/Miruro-API.git /opt/Miruro-API &
     cd /opt/Miruro-API && \
     pip3 install --no-cache-dir -r requirements.txt
 
+# Clone and install the Anivexa-API repository dependencies
+RUN git clone https://github.com/walterwhite-69/Anivexa-API.git /opt/Anivexa-API && \
+    cd /opt/Anivexa-API && \
+    pip3 install --no-cache-dir -r requirements.txt
+
 # Set up working directory and permissions
 WORKDIR /usr/src/app
 RUN chmod 777 /usr/src/app

@@ -33,3 +33,179 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: arata74/haha:latest
+
+      - name: Extract Requirements Versions
+        run: |
+          docker pull arata74/haha:latest
+          docker run --rm arata74/haha:latest pip3 freeze > installed_reqs.txt
+
+      - name: Generate Requirements Table
+        run: |
+          cat << 'EOF' > generate_table.py
+          import re
+          import urllib.request
+          import json
+          from datetime import datetime
+
+          installed = {}
+          with open("installed_reqs.txt") as f:
+              for line in f:
+                  if "==" in line:
+                      name, ver = line.strip().split("==", 1)
+                      installed[name.lower()] = (name, ver)
+                  elif "@" in line:
+                      name = line.split("@")[0].strip()
+                      installed[name.lower()] = (name, "unknown")
+
+          reqs_to_show = []
+          with open("requirements.txt") as f:
+              for line in f:
+                  line = line.strip()
+                  if line and not line.startswith("#"):
+                      pkg = re.split(r'[>=<]', line)[0].strip()
+                      if pkg:
+                          reqs_to_show.append(pkg)
+
+          print("| Name | Version | Last Update |")
+          print("|---|---|---|")
+
+          for pkg in reqs_to_show:
+              pkg_lower = pkg.lower()
+              if pkg_lower in installed:
+                  name, ver = installed[pkg_lower]
+              else:
+                  name, ver = pkg, "Not found"
+              
+              last_update = "Unknown"
+              if ver != "Not found" and ver != "unknown":
+                  try:
+                      url = f"https://pypi.org/pypi/{name}/{ver}/json"
+                      req = urllib.request.Request(url)
+                      with urllib.request.urlopen(req, timeout=5) as response:
+                          data = json.loads(response.read().decode())
+                          if data.get("urls"):
+                              upload_time = data["urls"][0]["upload_time"]
+                              dt = datetime.strptime(upload_time, "%Y-%m-%dT%H:%M:%S")
+                              last_update = dt.strftime("%Y-%m-%d")
+                  except Exception:
+                      pass
+              print(f"| {name} | {ver} | {last_update} |")
+          EOF
+          python3 generate_table.py > req_table.md
+
+      - name: Generate Repositories Table
+        run: |
+          cat << 'EOF' > generate_repo_table.py
+          import urllib.request
+          import json
+          from datetime import datetime
+
+          repos = [
+              "walterwhite-69/Miruro-API",
+              "walterwhite-69/Anivexa-API"
+          ]
+
+          print("| Repository | Latest Commit | Date | Status |")
+          print("|---|---|---|---|")
+
+          for repo in repos:
+              try:
+                  url = f"https://api.github.com/repos/{repo}/commits?per_page=1"
+                  req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+                  with urllib.request.urlopen(req, timeout=10) as response:
+                      data = json.loads(response.read().decode())
+                      if data:
+                          commit = data[0]
+                          sha = commit['sha'][:7]
+                          msg = commit['commit']['message'].split('\n')[0].replace('|', '-')
+                          if len(msg) > 50:
+                              msg = msg[:47] + '...'
+                          date_str = commit['commit']['author']['date']
+                          dt = datetime.strptime(date_str, "%Y-%m-%dT%H:%M:%SZ")
+                          date_formatted = dt.strftime("%Y-%m-%d %H:%M:%S UTC")
+                          print(f"| [{repo}](https://github.com/{repo}) | `{sha}` {msg} | {date_formatted} | Cloned in Docker |")
+                      else:
+                          print(f"| [{repo}](https://github.com/{repo}) | Unknown | Unknown | Unknown |")
+              except Exception as e:
+                  print(f"| [{repo}](https://github.com/{repo}) | Error | Error | Error |")
+          EOF
+          python3 generate_repo_table.py > repo_table.md
+
+      - name: Update README.md
+        run: |
+          DATE=$(date +'%Y-%m-%d %H:%M:%S %Z')
+          VERSION="${{ github.sha }}"
+          NAME="arata74/haha"
+          COMMIT_MSG=$(git log -1 --pretty=format:"%s" || echo "Unknown commit")
+          
+          # Update Docker Info
+          awk -v date="$DATE" -v version="$VERSION" -v name="$NAME" -v msg="$COMMIT_MSG" '
+            BEGIN { skip=0 }
+            /^## 🐳 Docker Build Information/ {
+              print;
+              print "";
+              print "The core of this project runs via a fully automated Docker container. The latest build statistics are tracked and updated automatically on every successful push to the repository.";
+              print "";
+              print "- **Name:** `" name "`";
+              print "- **Version:** `" substr(version, 1, 7) "` (latest)";
+              print "- **Latest Update:** `" date "`";
+              print "- **Commit:** " msg;
+              print "";
+              skip=1;
+              next;
+            }
+            /^---/ && skip==1 {
+              skip=0;
+            }
+            !skip { print }
+          ' README.md > README.md.tmp && mv README.md.tmp README.md
+
+          # Update Requirements Info
+          awk '
+            BEGIN { skip=0 }
+            /^## 📦 Core Dependencies/ {
+              print;
+              print "";
+              print "This project relies on several key Python packages to handle media streaming, database management (MongoDB), and API requests. The table below reflects the exact package versions currently active in the latest Docker build.";
+              print "";
+              while((getline line < "req_table.md") > 0) {
+                print line;
+              }
+              print "";
+              skip=1;
+              next;
+            }
+            /^---/ && skip==1 {
+              skip=0;
+            }
+            !skip { print }
+          ' README.md > README.md.tmp && mv README.md.tmp README.md
+
+          # Update Repositories Info
+          awk '
+            BEGIN { skip=0 }
+            /^## 🔗 Integrated External Services/ {
+              print;
+              print "";
+              print "To provide the best media experience, we automatically clone and install these external API services within our Docker container environment.";
+              print "";
+              while((getline line < "repo_table.md") > 0) {
+                print line;
+              }
+              print "";
+              skip=1;
+              next;
+            }
+            /^---/ && skip==1 {
+              skip=0;
+            }
+            !skip { print }
+          ' README.md > README.md.tmp && mv README.md.tmp README.md
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add README.md
+          git commit -m "docs: auto-update Docker build info in README [skip ci]" || echo "No changes to commit"
+          git push
