@@ -98,7 +98,7 @@ jobs:
           cat << 'EOF' > generate_repo_table.py
           import urllib.request
           import json
-          from datetime import datetime
+          from datetime import datetime, timedelta
 
           repos = [
               "walterwhite-69/Miruro-API",
@@ -122,7 +122,8 @@ jobs:
                               msg = msg[:47] + '...'
                           date_str = commit['commit']['author']['date']
                           dt = datetime.strptime(date_str, "%Y-%m-%dT%H:%M:%SZ")
-                          date_formatted = dt.strftime("%Y-%m-%d %H:%M:%S UTC")
+                          dt_gmt8 = dt + timedelta(hours=8)
+                          date_formatted = dt_gmt8.strftime("%Y-%m-%d %H:%M:%S GMT+8")
                           print(f"| [{repo}](https://github.com/{repo}) | `{sha}` {msg} | {date_formatted} | Cloned in Docker |")
                       else:
                           print(f"| [{repo}](https://github.com/{repo}) | Unknown | Unknown | Unknown |")
@@ -133,7 +134,7 @@ jobs:
 
       - name: Update README.md
         run: |
-          DATE=$(date +'%Y-%m-%d %H:%M:%S %Z')
+          DATE=$(TZ='Asia/Kuala_Lumpur' date +'%Y-%m-%d %H:%M:%S GMT+8')
           VERSION="${{ github.sha }}"
           NAME="arata74/haha"
           COMMIT_MSG=$(git log -1 --pretty=format:"%s" || echo "Unknown commit")
