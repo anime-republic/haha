@@ -13,9 +13,9 @@ A powerful, containerized media service and Telegram integration tool (powered b
 The core of this project runs via a fully automated Docker container. The latest build statistics are tracked and updated automatically on every successful push to the repository.
 
 - **Name:** `arata74/haha`
-- **Version:** `5d47f80` (latest)
-- **Latest Update:** `2026-08-17 04:17:43 UTC`
-- **Commit:** fix: change anivexa-api installation to use npm install
+- **Version:** `79c9541` (latest)
+- **Latest Update:** `2026-08-17 15:00:29 GMT+8`
+- **Commit:** Update README.md
 
 ---
 
@@ -61,8 +61,8 @@ To provide the best media experience, we automatically clone and install these e
 
 | Repository | Latest Commit | Date | Status |
 |---|---|---|---|
-| [walterwhite-69/Miruro-API](https://github.com/walterwhite-69/Miruro-API) | `dfb38a6` v3.0 - curl_cffi bypass, remove auth middleware | 2026-07-03 04:34:09 UTC | Cloned in Docker |
-| [walterwhite-69/Anivexa-API](https://github.com/walterwhite-69/Anivexa-API) | `14abe7b` Merge pull request #19 from az4if/main | 2026-08-15 02:28:17 UTC | Cloned in Docker |
+| [walterwhite-69/Miruro-API](https://github.com/walterwhite-69/Miruro-API) | `dfb38a6` v3.0 - curl_cffi bypass, remove auth middleware | 2026-07-03 12:34:09 GMT+8 | Cloned in Docker |
+| [walterwhite-69/Anivexa-API](https://github.com/walterwhite-69/Anivexa-API) | `14abe7b` Merge pull request #19 from az4if/main | 2026-08-15 10:28:17 GMT+8 | Cloned in Docker |
 
 ---
 
