@@ -5,7 +5,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Set up working directory early
 WORKDIR /usr/src/app
 
-# Install all system dependencies, Node.js 20, Python dependencies, clone repositories, and cleanup in optimized layers
+# Install all system dependencies, Google Chrome, Node.js 20, Python dependencies, clone repositories, and cleanup in optimized layers
 RUN apt-get update && apt-get install -y --no-install-recommends \
     python3.10 \
     python3-pip \
@@ -15,8 +15,16 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     mkvtoolnix \
     git \
     curl \
+    wget \
+    gnupg2 \
     tzdata \
     openssh-client \
+    # Install Google Chrome
+    && wget -q -O /tmp/chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
+    && apt-get install -y --no-install-recommends /tmp/chrome.deb || true \
+    && apt-get install -f -y \
+    && rm -f /tmp/chrome.deb \
+    # Install Node.js 20
     && curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
     && apt-get install -y nodejs \
     && rm -rf /var/lib/apt/lists/* \
