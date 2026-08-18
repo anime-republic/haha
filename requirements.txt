@@ -24,6 +24,8 @@ cloudscraper==1.2.71
 lk21==1.6.0
 lxml==5.1.0
 irc==20.5.0
+nodriver
+curl_cffi
 
 # Anipy
 anipy-api==3.10.0
