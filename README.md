@@ -13,8 +13,8 @@ A powerful, containerized media service and Telegram integration tool (powered b
 The core of this project runs via a fully automated Docker container. The latest build statistics are tracked and updated automatically on every successful push to the repository.
 
 - **Name:** `arata74/haha`
-- **Version:** `58caad9` (latest)
-- **Latest Update:** `2026-08-20 23:38:02 GMT+8`
+- **Version:** `59898ce` (latest)
+- **Latest Update:** `2026-08-21 02:43:54 GMT+8`
 - **Commit:** docs: auto-update Docker build info in README [skip ci]
 
 ---
@@ -64,7 +64,7 @@ To provide the best media experience, we automatically clone and install these e
 | Repository | Latest Commit | Date | Status |
 |---|---|---|---|
 | [walterwhite-69/Miruro-API](https://github.com/walterwhite-69/Miruro-API) | `dfb38a6` v3.0 - curl_cffi bypass, remove auth middleware | 2026-07-03 12:34:09 GMT+8 | Cloned in Docker |
-| [walterwhite-69/Anivexa-API](https://github.com/walterwhite-69/Anivexa-API) | `14abe7b` Merge pull request #19 from az4if/main | 2026-08-15 10:28:17 GMT+8 | Cloned in Docker |
+| [walterwhite-69/Anivexa-API](https://github.com/walterwhite-69/Anivexa-API) | `8f6d7a3` Fix Reanime and 2dhive watch sources | 2026-08-21 01:02:44 GMT+8 | Cloned in Docker |
 
 ---
 
