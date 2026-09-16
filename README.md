@@ -13,8 +13,8 @@ A powerful, containerized media service and Telegram integration tool (powered b
 The core of this project runs via a fully automated Docker container. The latest build statistics are tracked and updated automatically on every successful push to the repository.
 
 - **Name:** `arata74/haha`
-- **Version:** `28cd497` (latest)
-- **Latest Update:** `2026-09-16 11:54:21 GMT+8`
+- **Version:** `34a4be1` (latest)
+- **Latest Update:** `2026-09-16 19:04:23 GMT+8`
 - **Commit:** docs: auto-update Docker build info in README [skip ci]
 
 ---
