@@ -13,8 +13,8 @@ A powerful, containerized media service and Telegram integration tool (powered b
 The core of this project runs via a fully automated Docker container. The latest build statistics are tracked and updated automatically on every successful push to the repository.
 
 - **Name:** `arata74/haha`
-- **Version:** `cd4aa87` (latest)
-- **Latest Update:** `2026-10-05 12:43:06 GMT+8`
+- **Version:** `8b52b28` (latest)
+- **Latest Update:** `2026-10-05 21:57:27 GMT+8`
 - **Commit:** docs: auto-update Docker build info in README [skip ci]
 
 ---
@@ -43,7 +43,7 @@ This project relies on several key Python packages to handle media streaming, da
 | lk21 | 1.6.0 | 2021-07-15 |
 | lxml | 5.1.0 | 2024-01-10 |
 | irc | 20.5.0 | 2024-07-14 |
-| nodriver | 0.50.3 | 2026-05-13 |
+| nodriver | 0.50.5 | 2026-10-05 |
 | curl_cffi | 0.16.3 | 2026-09-02 |
 | anipy-api | 3.10.0 | 2026-08-11 |
 | anipy-cli | 3.10.0 | 2026-08-11 |
