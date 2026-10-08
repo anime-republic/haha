@@ -13,8 +13,8 @@ A powerful, containerized media service and Telegram integration tool (powered b
 The core of this project runs via a fully automated Docker container. The latest build statistics are tracked and updated automatically on every successful push to the repository.
 
 - **Name:** `arata74/haha`
-- **Version:** `0118144` (latest)
-- **Latest Update:** `2026-10-08 18:13:01 GMT+8`
+- **Version:** `46c29cf` (latest)
+- **Latest Update:** `2026-10-09 02:37:47 GMT+8`
 - **Commit:** docs: auto-update Docker build info in README [skip ci]
 
 ---
@@ -43,7 +43,7 @@ This project relies on several key Python packages to handle media streaming, da
 | lk21 | 1.6.0 | 2021-07-15 |
 | lxml | 5.1.0 | 2024-01-10 |
 | irc | 20.5.0 | 2024-07-14 |
-| nodriver | 0.50.5 | 2026-10-05 |
+| nodriver | 0.50.6 | 2026-10-08 |
 | curl_cffi | 0.16.3 | 2026-09-02 |
 | anipy-api | 3.10.0 | 2026-08-11 |
 | anipy-cli | 3.10.0 | 2026-08-11 |
@@ -64,7 +64,7 @@ To provide the best media experience, we automatically clone and install these e
 | Repository | Latest Commit | Date | Status |
 |---|---|---|---|
 | [walterwhite-69/Miruro-API](https://github.com/walterwhite-69/Miruro-API) | `dfb38a6` v3.0 - curl_cffi bypass, remove auth middleware | 2026-07-03 12:34:09 GMT+8 | Cloned in Docker |
-| [walterwhite-69/Anivexa-API](https://github.com/walterwhite-69/Anivexa-API) | `db8cda9` Merge pull request #33 from DaniHRE/fix/reanime... | 2026-09-26 18:05:04 GMT+8 | Cloned in Docker |
+| [walterwhite-69/Anivexa-API](https://github.com/walterwhite-69/Anivexa-API) | `97b91cc` Update README.md | 2026-10-08 20:17:55 GMT+8 | Cloned in Docker |
 
 ---
 
