@@ -13,8 +13,8 @@ A powerful, containerized media service and Telegram integration tool (powered b
 The core of this project runs via a fully automated Docker container. The latest build statistics are tracked and updated automatically on every successful push to the repository.
 
 - **Name:** `arata74/haha`
-- **Version:** `9fb7ebe` (latest)
-- **Latest Update:** `2026-11-14 05:16:48 GMT+8`
+- **Version:** `da2d041` (latest)
+- **Latest Update:** `2026-11-14 13:29:43 GMT+8`
 - **Commit:** docs: auto-update Docker build info in README [skip ci]
 
 ---
@@ -35,7 +35,7 @@ This project relies on several key Python packages to handle media streaming, da
 | requests | 2.32.5 | 2025-08-18 |
 | httpx | 0.27.0 | 2024-02-21 |
 | dnspython | 2.6.1 | 2024-02-18 |
-| feedparser | 6.0.11 | 2023-12-10 |
+| feedparser | 6.0.11 | Unknown |
 | APScheduler | 3.10.4 | 2023-08-19 |
 | motor | 3.3.2 | 2023-11-14 |
 | psutil | 5.9.8 | 2024-01-19 |
