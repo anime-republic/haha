@@ -13,8 +13,8 @@ A powerful, containerized media service and Telegram integration tool (powered b
 The core of this project runs via a fully automated Docker container. The latest build statistics are tracked and updated automatically on every successful push to the repository.
 
 - **Name:** `arata74/haha`
-- **Version:** `4cfb8fc` (latest)
-- **Latest Update:** `2026-11-23 20:01:59 GMT+8`
+- **Version:** `2d0b6d5` (latest)
+- **Latest Update:** `2026-11-24 07:43:35 GMT+8`
 - **Commit:** docs: auto-update Docker build info in README [skip ci]
 
 ---
@@ -64,7 +64,7 @@ To provide the best media experience, we automatically clone and install these e
 | Repository | Latest Commit | Date | Status |
 |---|---|---|---|
 | [walterwhite-69/Miruro-API](https://github.com/walterwhite-69/Miruro-API) | `dfb38a6` v3.0 - curl_cffi bypass, remove auth middleware | 2026-07-03 12:34:09 GMT+8 | Cloned in Docker |
-| [walterwhite-69/Anivexa-API](https://github.com/walterwhite-69/Anivexa-API) | `fb337ea` Merge pull request #40 from DaniHRE/fix/reanime... | 2026-11-18 14:10:51 GMT+8 | Cloned in Docker |
+| [walterwhite-69/Anivexa-API](https://github.com/walterwhite-69/Anivexa-API) | `4bb82a8` Replace MKissa and Senshi with AniHQ and Pahenime | 2026-11-23 22:49:49 GMT+8 | Cloned in Docker |
 
 ---
 
